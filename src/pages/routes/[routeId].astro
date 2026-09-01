@@ -1,0 +1,22 @@
+---
+/** Formal dynamic Route Hub. */
+import GameShell from '../../components/experience/GameShell.astro';
+import RouteHub from '../../components/experience/routes/RouteHub.astro';
+import { game } from '../../config/game';
+import type { GameRoute } from '../../config/game';
+import { experienceNav } from '../../lib/experience-nav';
+import '../../styles/routes.css';
+
+export function getStaticPaths() {
+	return (game.routes ?? []).map((route) => ({ params: { routeId: route.id }, props: { route } }));
+}
+
+interface Props { route: GameRoute; }
+const { route } = Astro.props;
+const { nav, footerLinks, homeHref } = await experienceNav();
+const routes = game.routes ?? [];
+---
+
+<GameShell title={`${route.title} — ${game.title}`} description={route.description} canonical={new URL(route.href, game.siteUrl).href} siteTitle={game.shortName} homeHref={homeHref} nav={nav} activePath={route.href} footerLinks={footerLinks} footerText={game.title}>
+	<RouteHub route={route} routes={routes} />
+</GameShell>

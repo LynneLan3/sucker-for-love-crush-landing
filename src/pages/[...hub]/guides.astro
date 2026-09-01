@@ -1,0 +1,59 @@
+---
+import GameShell from '../../components/experience/GameShell.astro';
+import GuideGrid from '../../components/GuideGrid.astro';
+import RouteIndex from '../../components/experience/routes/RouteIndex.astro';
+import { game } from '../../config/game';
+import { ui } from '../../lib/ui';
+import { experienceNav } from '../../lib/experience-nav';
+import { expectedHubSlug } from '../../lib/paths';
+import { getGuides, sortGuides } from '../../lib/guides';
+import '../../styles/routes.css';
+import GameShellV3 from '../../components/v3/GameShellV3.astro';
+import GuidesV3 from '../../components/v3/GuidesV3.astro';
+import { isV3Presentation } from '../../lib/v3/presentation';
+import '../../styles/v3/presentation.css';
+import BaseV3 from '../../layouts/v3/BaseV3.astro';
+
+export function getStaticPaths() {
+	if (game.siteMode !== 'hub') return [];
+	return [{ params: { hub: expectedHubSlug(game.hubPath) } }];
+}
+
+const t = ui();
+const { nav, footerLinks, homeHref, guidesHref } = await experienceNav();
+const guides = (await getGuides()).sort(sortGuides);
+const routes = game.routes ?? [];
+---
+
+{isV3Presentation ? <BaseV3 title={`${t.allGuides} — ${game.title}`} description={game.description}><GameShellV3 title={`${t.allGuides} — ${game.title}`} activePath={guidesHref}><GuidesV3 title={t.allGuides} description={game.description} entries={guides} /></GameShellV3></BaseV3> :
+
+<GameShell title={`${t.allGuides} — ${game.title}`} description={game.description} canonical={new URL(guidesHref, game.siteUrl).href} siteTitle={game.shortName} homeHref={homeHref} nav={nav} activePath={guidesHref} footerLinks={footerLinks} footerText={game.title}>
+	{routes.length === 0 && <section class="exp-index-hero">
+		<div class="exp-content">
+			<p class="exp-eyebrow">{t.fieldGuide}</p>
+			<h1 class="exp-h1">{t.allGuides}</h1>
+			<p class="exp-lede">{game.description}</p>
+		</div>
+	</section>}
+	{routes.length > 0 ? <>
+		<RouteIndex routes={routes} />
+		{guides.length > 0 && (
+			<section class="exp-content exp-guides-library" aria-labelledby="guide-library-heading">
+				<div class="exp-guides-library__heading">
+					<div>
+						<p class="exp-eyebrow">{t.fieldGuide}</p>
+						<h2 class="exp-h2" id="guide-library-heading">{t.allGuides}</h2>
+					</div>
+					<span class="exp-guides-library__count">{guides.length} guides</span>
+				</div>
+				<GuideGrid entries={guides} />
+			</section>
+		)}
+	</> : guides.length > 0 && (
+		<section class="exp-content gw-section" aria-labelledby="guide-library-heading">
+			<h2 class="exp-h2" id="guide-library-heading">{t.allGuides}</h2>
+			<GuideGrid entries={guides} />
+		</section>
+	)}
+</GameShell>
+}

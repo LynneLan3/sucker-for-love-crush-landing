@@ -1,0 +1,4 @@
+---
+import generated from '../../v4/generated/example-site.json';
+---
+<html lang="en"><head><title>V4 Debug</title></head><body><main><h1>V4 Debug Surface</h1><ul>{generated.pages.map((page) => <li><a href={`/v4-debug/${page.id}/`}>{page.title}</a></li>)}</ul></main></body></html>

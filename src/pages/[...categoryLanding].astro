@@ -1,0 +1,128 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getEntry, render } from 'astro:content';
+import { game } from '../config/game';
+import type { GameCategory } from '../config/game';
+import GuideGrid from '../components/GuideGrid.astro';
+import TrustPageLayout from '../components/TrustPageLayout.astro';
+import { categoryHref, categoryIdOf, getGuides, getHubHref, sortGuides } from '../lib/guides';
+import {
+	enabledTrustPages,
+	trustPageParam,
+	TRUST_PAGE_SLUGS,
+	type TrustPageKind,
+} from '../lib/trust';
+import { ui } from '../lib/ui';
+import CategoryV3 from '../components/v3/CategoryV3.astro';
+import { isV3Presentation } from '../lib/v3/presentation';
+import '../styles/v3/presentation.css';
+
+export function getStaticPaths() {
+	const categoryPaths = game.categories.map((category) => {
+		const href = categoryHref(category.id);
+		const categoryLanding = href.replace(/^\/+|\/+$/g, '');
+		return {
+			params: { categoryLanding },
+			props: { category },
+		};
+	});
+	const trustPaths = enabledTrustPages().map((page) => ({
+		params: { categoryLanding: trustPageParam(page.kind) },
+		props: { trustKind: page.kind },
+	}));
+	return [...categoryPaths, ...trustPaths];
+}
+
+interface Props {
+	category?: GameCategory;
+	trustKind?: TrustPageKind;
+}
+
+const { category, trustKind } = Astro.props;
+const t = ui();
+
+let trustPageConfig;
+let trustEntry;
+let TrustContent;
+let backHref = '/';
+let categoryGuides;
+
+if (trustKind) {
+	trustPageConfig = game.trust?.pages[trustKind];
+	if (!trustPageConfig?.enabled) {
+		throw new Error(`Trust page "${trustKind}" is not enabled in site config.`);
+	}
+	trustEntry = await getEntry('trust', TRUST_PAGE_SLUGS[trustKind]);
+	if (!trustEntry) {
+		throw new Error(`Trust content entry missing for "${trustKind}". Run npm run site:generate.`);
+	}
+	const rendered = await render(trustEntry);
+	TrustContent = rendered.Content;
+	backHref = await getHubHref();
+} else if (category) {
+	categoryGuides = (await getGuides())
+		.filter((entry) => categoryIdOf(entry) === category.id)
+		.sort(sortGuides);
+} else {
+	throw new Error(`No route props for ${Astro.url.pathname}`);
+}
+---
+
+{
+	category && isV3Presentation ? (
+		<CategoryV3 category={category} entries={categoryGuides ?? []} />
+	) : trustKind && trustPageConfig && trustEntry && TrustContent && (
+		<StarlightPage
+			frontmatter={{
+				title: trustPageConfig.title,
+				description: trustEntry.data.description,
+				template: 'doc',
+				pagefind: false,
+				lastUpdated: false,
+				prev: false,
+				next: false,
+				head:
+					trustPageConfig.robots === 'noindex,follow'
+						? [{ tag: 'meta', attrs: { name: 'robots', content: trustPageConfig.robots } }]
+						: [],
+			}}
+		>
+			<TrustPageLayout backHref={backHref} backLabel={t.backToHub}>
+				<TrustContent />
+			</TrustPageLayout>
+		</StarlightPage>
+	)
+}
+
+{
+	category && (
+		<StarlightPage
+			frontmatter={{
+				title: category.label,
+				description: category.description,
+				template: 'doc',
+				pagefind: false,
+				lastUpdated: false,
+				prev: false,
+				next: false,
+				category: category.id,
+				head: [
+					{
+						tag: 'meta',
+						attrs: { name: 'robots', content: 'noindex,follow' },
+					},
+				],
+			}}
+		>
+			<p>{category.description}</p>
+			{
+				categoryGuides && categoryGuides.length > 0 && (
+					<section class="gw-section">
+						<h2>{t.guidesInCategory(category.label)}</h2>
+						<GuideGrid entries={categoryGuides} />
+					</section>
+				)
+			}
+		</StarlightPage>
+	)
+}

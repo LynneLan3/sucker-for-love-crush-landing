@@ -1,0 +1,11 @@
+---
+import generated from '../../v4/generated/example-site.json';
+import '../../v4/visual-system.css';
+import V4GlobalHeader from '../../components/v4/V4GlobalHeader.astro';
+const groups = generated.navigation.primary.flatMap((category) => category.groups ?? []).map((group) => ({ label: group.label, ids: group.items.map((item) => item.pageId).filter(Boolean).map((id) => generated.pages.find((page) => page.id === id)).filter((page): page is (typeof generated.pages)[number] => Boolean(page)) })).filter((group) => group.ids.length > 0);
+---
+<html lang="en"><head><title>Categories - {generated.game.name}</title></head><body class="v4-shell"><main class="v4-home">
+  <V4GlobalHeader game={generated.game} navigation={generated.navigation} currentPageId="category" />
+  <header class="v4-answer-header"><p class="v4-kicker">Browse the guide</p><h1>What are you trying to do?</h1><p class="v4-muted">Choose a guide area, then open the answer that matches your goal.</p></header>
+  <section class="v4-category-list">{groups.map((group) => <section><div class="v4-section-heading"><div><span class="v4-kicker">Category</span><h2>{group.label}</h2></div></div><div class="v4-browse-grid">{group.ids.map((item) => <a class="v4-browse-link" href={item.href}><strong>{item.title}</strong><span>{item.pageData.intent.playerProblem}</span></a>)}</div></section>)}</section>
+</main></body></html>

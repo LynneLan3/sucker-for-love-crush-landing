@@ -1,0 +1,26 @@
+---
+import GameShell from '../../../components/experience/GameShell.astro';
+import RouteTaskMap from '../../../components/experience/routes/RouteTaskMap.astro';
+import { game } from '../../../config/game';
+import { ui } from '../../../lib/ui';
+import { experienceNav } from '../../../lib/experience-nav';
+import { expectedHubSlug } from '../../../lib/paths';
+import '../../../styles/routes.css';
+
+export function getStaticPaths() {
+	if (game.siteMode !== 'hub') return [];
+	return [{ params: { hub: expectedHubSlug(game.hubPath) } }];
+}
+
+const t = ui();
+const navState = await experienceNav();
+const routes = game.routes ?? [];
+
+if (routes.length === 0) return Astro.redirect(navState.guidesHref);
+
+const { nav, footerLinks, homeHref, routesHref } = navState;
+---
+
+<GameShell title={`${t.routesNav} — ${game.title}`} description={t.chooseWhatYoureTryingLede} canonical={new URL(routesHref, game.siteUrl).href} siteTitle={game.shortName} homeHref={homeHref} nav={nav} activePath={routesHref} footerLinks={footerLinks} footerText={game.title}>
+	<RouteTaskMap routes={routes} />
+</GameShell>
