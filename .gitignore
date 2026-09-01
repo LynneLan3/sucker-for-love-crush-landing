@@ -40,3 +40,5 @@ tmp-*/
 preview-screenshots/
 test-reports/
 validation-reports/
+.vercel
+.env*

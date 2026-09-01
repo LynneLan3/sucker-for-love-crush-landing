@@ -16,7 +16,7 @@ site:
 deployment:
   provider: vercel
   orgId: "team_yAOizMTSVuT0RJATgFdAlQuG"
-  projectId: ""
+  projectId: "prj_YAUeB4Ys7TZxrLylU2z7uoYjpeWA"
   projectName: "sucker-for-love-crush-landing"
   productionUrl: "https://sucker-for-love-crush-landing.vercel.app/"
   productionBranch: ""
