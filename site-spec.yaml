@@ -1,0 +1,65 @@
+schemaVersion: 1
+templateVersion: "2.0.0"
+mode: generated-site
+
+site:
+  id: "sucker-for-love-crush-landing"
+  mode: standalone
+  locale: en
+  siteUrl: "https://sucker-for-love-crush-landing.vercel.app/"
+  hubPath: /
+  title: "Sucker for Love: Crush Landing Wiki"
+  shortName: "Sucker for Love: Crush Landing"
+  description: "Starter wiki shell for Sucker for Love: Crush Landing."
+  disclaimer: "Content requires source review before production."
+
+deployment:
+  provider: vercel
+  orgId: "team_yAOizMTSVuT0RJATgFdAlQuG"
+  projectId: ""
+  projectName: "sucker-for-love-crush-landing"
+  productionUrl: "https://sucker-for-love-crush-landing.vercel.app/"
+  productionBranch: ""
+
+game:
+  name: "Sucker for Love: Crush Landing"
+  hubTitle: "Sucker for Love: Crush Landing Wiki"
+  tagline: "Source-reviewed game information, to be filled from upstream evidence."
+  releaseStatus: unknown
+  developer: Unknown
+  publisher: Unknown
+  platforms:
+    - "Unknown"
+
+theme:
+  accentColor: "#d79b16"
+  accentForeground: "#111111"
+
+categories:
+  - id: starter
+    label: Getting Started
+    description: "Starter navigation; source-backed content is pending."
+    icon: rocket
+    order: 1
+    imageAssetId: null
+
+pages:
+  - id: getting-started
+    title: "Sucker for Love: Crush Landing Getting Started"
+    description: "Starter page awaiting reviewed game evidence."
+    category: starter
+    slug: getting-started
+    source: site-input/pages/getting-started.md
+    status: needs-verification
+    featured: true
+    sidebarOrder: 1
+    role: core
+    intents:
+      - getting-started
+    quickAnswer: "Source-backed answer pending upstream evidence."
+    changeSummary: "Initial generated starter shell from Phase 7F handoff."
+
+homepage:
+  primaryCta:
+    label: Getting Started
+    pageId: getting-started

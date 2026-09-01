@@ -1,6 +1,0 @@
----
-import generated from '../../v4/generated/example-site.json';
-export function getStaticPaths() { return generated.pages.map((page) => ({ params: { page: page.id }, props: { page } })); }
-const page = Astro.props.page;
----
-<html lang="en"><head><title>{page.title} · V4 Debug</title></head><body><main><p><a href="/v4-debug/">V4 Debug</a></p><h1>{page.title}</h1><p>Prototype: {page.pageData.intent.prototype}</p>{page.pageData.primitiveData.map((instance) => <section><h2>{instance.primitiveId} · {instance.instanceId}</h2><p>evidenceRefs: {instance.evidenceRefs.join(', ') || 'none'}</p><p>mediaRefs: {instance.mediaRefs.join(', ') || 'none'}</p><pre>{JSON.stringify(instance.payload, null, 2)}</pre></section>)}</main></body></html>

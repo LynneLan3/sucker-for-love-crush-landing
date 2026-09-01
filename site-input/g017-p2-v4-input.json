@@ -1,0 +1,246 @@
+{
+  "game": {
+    "name": "Sucker for Love: Crush Landing",
+    "slug": "sucker-for-love-crush-landing",
+    "accent": "#d94672",
+    "accentForeground": "#fff7fb"
+  },
+  "navigation": {
+    "primary": [
+      {
+        "id": "home",
+        "label": "Home",
+        "href": "/v4-preview/"
+      },
+      {
+        "id": "guide",
+        "label": "Guide",
+        "href": "/v4-preview/category/",
+        "groups": [
+          {
+            "id": "start",
+            "label": "Start here",
+            "items": [
+              {
+                "id": "crush-landing-overview",
+                "label": "Crush Landing overview",
+                "href": "/v4-preview/crush-landing-overview/",
+                "pageId": "crush-landing-overview"
+              },
+              {
+                "id": "hheily-and-the-comet",
+                "label": "Hheily and the comet",
+                "href": "/v4-preview/hheily-and-the-comet/",
+                "pageId": "hheily-and-the-comet"
+              }
+            ]
+          },
+          {
+            "id": "play",
+            "label": "Plan your play",
+            "items": [
+              {
+                "id": "color-feeding-and-choices",
+                "label": "Color feeding and choices",
+                "href": "/v4-preview/color-feeding-and-choices/",
+                "pageId": "color-feeding-and-choices"
+              },
+              {
+                "id": "release-and-steam-facts",
+                "label": "Release and Steam facts",
+                "href": "/v4-preview/release-and-steam-facts/",
+                "pageId": "release-and-steam-facts"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "pages": [
+    {
+      "page": {
+        "id": "crush-landing-overview",
+        "title": "Sucker for Love: Crush Landing overview",
+        "href": "/v4-preview/crush-landing-overview/"
+      },
+      "facts": [
+        {
+          "id": "fact-overview-genre",
+          "label": "Genre",
+          "value": "Casual, indie, RPG; horror-comedy visual novel",
+          "verified": true
+        },
+        {
+          "id": "fact-overview-premise",
+          "label": "Premise",
+          "value": "A captivating comet named Hheily crash-lands in an apartment, drawing the player into an interplanetary conflict between light and dark.",
+          "verified": true
+        },
+        {
+          "id": "fact-overview-goal",
+          "label": "Goal",
+          "value": "Feed Hheily's fire to help save the world and try to win a kiss.",
+          "verified": true
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceId": "steam-store-3848900-overview",
+          "sourceType": "official",
+          "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
+          "finding": "Steam store description and feature list, checked 2026-09-01."
+        }
+      ],
+      "assets": [],
+      "id": "crush-landing-overview",
+      "title": "Sucker for Love: Crush Landing overview",
+      "href": "/v4-preview/crush-landing-overview/",
+      "query": "Sucker for Love Crush Landing overview",
+      "playerProblem": "understand what Crush Landing is and what is confirmed before playing",
+      "primaryTask": "getting-started",
+      "priority": 1
+    },
+    {
+      "page": {
+        "id": "hheily-and-the-comet",
+        "title": "Hheily and the comet",
+        "href": "/v4-preview/hheily-and-the-comet/"
+      },
+      "facts": [
+        {
+          "id": "fact-hheily-comet",
+          "label": "Hheily",
+          "value": "A sentient comet who can shapeshift into different forms, including a human-like form.",
+          "verified": true
+        },
+        {
+          "id": "fact-hheily-conflict",
+          "label": "Story pressure",
+          "value": "Hheily did not arrive by accident and needs energy to sustain herself.",
+          "verified": true
+        },
+        {
+          "id": "fact-hheily-tone",
+          "label": "Tone",
+          "value": "The game combines Lovecraftian horror, comedy, and romance.",
+          "verified": true
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceId": "steam-store-3848900-hheily",
+          "sourceType": "official",
+          "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
+          "finding": "Steam store description, checked 2026-09-01."
+        }
+      ],
+      "assets": [],
+      "id": "hheily-and-the-comet",
+      "title": "Hheily and the comet",
+      "href": "/v4-preview/hheily-and-the-comet/",
+      "query": "Sucker for Love Crush Landing Hheily comet",
+      "playerProblem": "learn who Hheily is and how the comet fits the story",
+      "primaryTask": "entity-lookup",
+      "priority": 2
+    },
+    {
+      "page": {
+        "id": "color-feeding-and-choices",
+        "title": "Color feeding and choices",
+        "href": "/v4-preview/color-feeding-and-choices/"
+      },
+      "facts": [
+        {
+          "id": "fact-colors",
+          "label": "Puzzle loop",
+          "value": "The store page confirms colorful puzzles involving the resources used to feed Hheily's flame.",
+          "verified": true
+        },
+        {
+          "id": "fact-endings",
+          "label": "Choices",
+          "value": "Actions can lead to multiple endings.",
+          "verified": true
+        },
+        {
+          "id": "fact-scope",
+          "label": "Guide scope",
+          "value": "This preview intentionally avoids unverified item orders, exact solutions, and ending walkthroughs.",
+          "verified": true
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceId": "steam-store-3848900-features",
+          "sourceType": "official",
+          "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
+          "finding": "Steam feature list confirms colorful puzzles and multiple endings based on actions, checked 2026-09-01."
+        }
+      ],
+      "assets": [],
+      "id": "color-feeding-and-choices",
+      "title": "Color feeding and choices",
+      "href": "/v4-preview/color-feeding-and-choices/",
+      "query": "Sucker for Love Crush Landing colors choices multiple endings",
+      "playerProblem": "understand the confirmed puzzle and choice systems without spoilers",
+      "primaryTask": "mechanics",
+      "priority": 3
+    },
+    {
+      "page": {
+        "id": "release-and-steam-facts",
+        "title": "Release and Steam facts",
+        "href": "/v4-preview/release-and-steam-facts/"
+      },
+      "facts": [
+        {
+          "id": "fact-release-date",
+          "label": "Release date",
+          "value": "August 31, 2026",
+          "verified": true
+        },
+        {
+          "id": "fact-developer",
+          "label": "Developer",
+          "value": "Akabaka",
+          "verified": true
+        },
+        {
+          "id": "fact-publisher",
+          "label": "Publisher",
+          "value": "Black Lantern Collective",
+          "verified": true
+        },
+        {
+          "id": "fact-platform",
+          "label": "Minimum OS",
+          "value": "Windows 10",
+          "verified": true
+        },
+        {
+          "id": "fact-memory",
+          "label": "Minimum memory",
+          "value": "4 GB RAM",
+          "verified": true
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceId": "steam-store-3848900-release",
+          "sourceType": "official",
+          "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
+          "finding": "Steam store metadata and minimum system requirements, checked 2026-09-01."
+        }
+      ],
+      "assets": [],
+      "id": "release-and-steam-facts",
+      "title": "Release and Steam facts",
+      "href": "/v4-preview/release-and-steam-facts/",
+      "query": "Sucker for Love Crush Landing release date system requirements Steam",
+      "playerProblem": "check the current release, platform, and minimum PC requirements",
+      "primaryTask": "release-facts",
+      "priority": 4
+    }
+  ]
+}
