@@ -18,12 +18,12 @@
       {
         "id": "home",
         "label": "Home",
-        "href": "/v4-preview/"
+        "href": "/"
       },
       {
         "id": "guide",
         "label": "Guide",
-        "href": "/v4-preview/category/",
+        "href": "/category/",
         "groups": [
           {
             "id": "start",
@@ -32,31 +32,61 @@
               {
                 "id": "crush-landing-overview",
                 "label": "Crush Landing overview",
-                "href": "/v4-preview/crush-landing-overview/",
+                "href": "/crush-landing-overview/",
                 "pageId": "crush-landing-overview"
               },
               {
                 "id": "hheily-and-the-comet",
                 "label": "Hheily and the comet",
-                "href": "/v4-preview/hheily-and-the-comet/",
+                "href": "/hheily-and-the-comet/",
                 "pageId": "hheily-and-the-comet"
+              },
+              {
+                "id": "characters-and-visitors",
+                "label": "Characters and visitors",
+                "href": "/characters-and-visitors/",
+                "pageId": "characters-and-visitors"
               }
             ]
           },
           {
             "id": "play",
-            "label": "Plan your play",
+            "label": "Play and solve",
             "items": [
               {
                 "id": "color-feeding-and-choices",
                 "label": "Color feeding and choices",
-                "href": "/v4-preview/color-feeding-and-choices/",
+                "href": "/color-feeding-and-choices/",
                 "pageId": "color-feeding-and-choices"
+              },
+              {
+                "id": "demo-walkthrough-and-first-steps",
+                "label": "Demo walkthrough and first steps",
+                "href": "/demo-walkthrough-and-first-steps/",
+                "pageId": "demo-walkthrough-and-first-steps"
+              },
+              {
+                "id": "puzzles-and-player-questions",
+                "label": "Puzzles and player questions",
+                "href": "/puzzles-and-player-questions/",
+                "pageId": "puzzles-and-player-questions"
+              }
+            ]
+          },
+          {
+            "id": "reference",
+            "label": "Reference",
+            "items": [
+              {
+                "id": "endings-and-achievements",
+                "label": "Endings and achievements",
+                "href": "/endings-and-achievements/",
+                "pageId": "endings-and-achievements"
               },
               {
                 "id": "release-and-steam-facts",
                 "label": "Release and Steam facts",
-                "href": "/v4-preview/release-and-steam-facts/",
+                "href": "/release-and-steam-facts/",
                 "pageId": "release-and-steam-facts"
               }
             ]
@@ -68,6 +98,10 @@
   "homepage": {
     "pageIds": [
       "release-and-steam-facts",
+      "characters-and-visitors",
+      "endings-and-achievements",
+      "puzzles-and-player-questions",
+      "demo-walkthrough-and-first-steps",
       "color-feeding-and-choices",
       "hheily-and-the-comet",
       "crush-landing-overview"
@@ -78,13 +112,13 @@
     {
       "id": "crush-landing-overview",
       "title": "Sucker for Love: Crush Landing overview",
-      "href": "/v4-preview/crush-landing-overview/",
+      "href": "/crush-landing-overview/",
       "pageData": {
         "pageDataVersion": "v4",
         "page": {
           "id": "crush-landing-overview",
           "title": "Sucker for Love: Crush Landing overview",
-          "href": "/v4-preview/crush-landing-overview/",
+          "href": "/crush-landing-overview/",
           "query": "Sucker for Love Crush Landing overview",
           "playerProblem": "understand what Crush Landing is and what is confirmed before playing"
         },
@@ -99,6 +133,11 @@
               "primitiveId": "A01",
               "status": "include",
               "reason": "Every answer surface identifies its task."
+            },
+            {
+              "primitiveId": "E01",
+              "status": "include",
+              "reason": "Verified facts require a rendered fact card."
             }
           ],
           "resolution": {
@@ -108,40 +147,101 @@
         },
         "facts": [
           {
-            "id": "fact-overview-genre",
+            "id": "overview-genre",
             "label": "Genre",
-            "value": "Casual, indie, RPG; horror-comedy visual novel",
+            "value": "Horror-comedy visual novel with romance and colorful puzzles.",
             "verified": true
           },
           {
-            "id": "fact-overview-premise",
+            "id": "overview-premise",
             "label": "Premise",
-            "value": "A captivating comet named Hheily crash-lands in an apartment, drawing the player into an interplanetary conflict between light and dark.",
+            "value": "A sentient shapeshifting comet named Hheily crash-lands in an apartment and pulls the player into an interplanetary conflict between light and dark.",
             "verified": true
           },
           {
-            "id": "fact-overview-goal",
+            "id": "overview-goal",
             "label": "Goal",
-            "value": "Feed Hheily's fire to help save the world and try to win a kiss.",
+            "value": "Feed Hheily's flame to help save the world and possibly win a kiss.",
+            "verified": true
+          },
+          {
+            "id": "overview-scope",
+            "label": "Scope",
+            "value": "This guide separates official full-game facts from demo observations and community questions.",
             "verified": true
           }
         ],
         "evidence": [
           {
-            "evidenceId": "steam-store-3848900-overview",
+            "evidenceId": "steam-overview",
             "sourceType": "official",
             "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
-            "finding": "Steam store description and feature list, checked 2026-09-01."
+            "finding": "Official Steam description and feature list, checked 2026-09-01."
+          },
+          {
+            "evidenceId": "youtube-announcement",
+            "sourceType": "youtube",
+            "sourceRef": "https://www.youtube.com/watch?v=BNudA1IM6qM",
+            "finding": "Official announcement trailer used to cross-check the premise and tone."
           }
         ],
         "media": [],
         "assets": [],
-        "primitiveData": [],
+        "primitiveData": [
+          {
+            "instanceId": "answer-header",
+            "primitiveId": "A01",
+            "payload": {
+              "title": "Sucker for Love: Crush Landing overview",
+              "task": "understand what Crush Landing is and what is confirmed before playing",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-overview",
+              "youtube-announcement"
+            ],
+            "mediaRefs": []
+          },
+          {
+            "instanceId": "verified-facts",
+            "primitiveId": "E01",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Genre",
+                  "value": "Horror-comedy visual novel with romance and colorful puzzles."
+                },
+                {
+                  "label": "Premise",
+                  "value": "A sentient shapeshifting comet named Hheily crash-lands in an apartment and pulls the player into an interplanetary conflict between light and dark."
+                },
+                {
+                  "label": "Goal",
+                  "value": "Feed Hheily's flame to help save the world and possibly win a kiss."
+                },
+                {
+                  "label": "Scope",
+                  "value": "This guide separates official full-game facts from demo observations and community questions."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-overview",
+              "youtube-announcement"
+            ],
+            "mediaRefs": []
+          }
+        ],
         "primitiveRecipe": [
           {
             "primitiveId": "A01",
             "status": "include",
             "reason": "Every answer surface identifies its task."
+          },
+          {
+            "primitiveId": "E01",
+            "status": "include",
+            "reason": "Verified facts require a rendered fact card."
           }
         ]
       },
@@ -149,25 +249,94 @@
         "surface": "answer",
         "showHero": false,
         "hasPermanentDocsSidebar": false,
-        "primitives": []
+        "primitives": [
+          {
+            "id": "A01",
+            "label": "Answer Header",
+            "interactive": false,
+            "instanceId": "answer-header",
+            "payload": {
+              "title": "Sucker for Love: Crush Landing overview",
+              "task": "understand what Crush Landing is and what is confirmed before playing",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-overview",
+              "youtube-announcement"
+            ],
+            "mediaRefs": [],
+            "behavior": "answer-header",
+            "data": []
+          },
+          {
+            "id": "E01",
+            "label": "Fact Card",
+            "interactive": false,
+            "instanceId": "verified-facts",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Genre",
+                  "value": "Horror-comedy visual novel with romance and colorful puzzles."
+                },
+                {
+                  "label": "Premise",
+                  "value": "A sentient shapeshifting comet named Hheily crash-lands in an apartment and pulls the player into an interplanetary conflict between light and dark."
+                },
+                {
+                  "label": "Goal",
+                  "value": "Feed Hheily's flame to help save the world and possibly win a kiss."
+                },
+                {
+                  "label": "Scope",
+                  "value": "This guide separates official full-game facts from demo observations and community questions."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-overview",
+              "youtube-announcement"
+            ],
+            "mediaRefs": [],
+            "behavior": "entity-facts",
+            "data": [
+              {
+                "label": "Genre",
+                "value": "Horror-comedy visual novel with romance and colorful puzzles."
+              },
+              {
+                "label": "Premise",
+                "value": "A sentient shapeshifting comet named Hheily crash-lands in an apartment and pulls the player into an interplanetary conflict between light and dark."
+              },
+              {
+                "label": "Goal",
+                "value": "Feed Hheily's flame to help save the world and possibly win a kiss."
+              },
+              {
+                "label": "Scope",
+                "value": "This guide separates official full-game facts from demo observations and community questions."
+              }
+            ]
+          }
+        ]
       }
     },
     {
       "id": "hheily-and-the-comet",
       "title": "Hheily and the comet",
-      "href": "/v4-preview/hheily-and-the-comet/",
+      "href": "/hheily-and-the-comet/",
       "pageData": {
         "pageDataVersion": "v4",
         "page": {
           "id": "hheily-and-the-comet",
           "title": "Hheily and the comet",
-          "href": "/v4-preview/hheily-and-the-comet/",
-          "query": "Sucker for Love Crush Landing Hheily comet",
+          "href": "/hheily-and-the-comet/",
+          "query": "Sucker for Love Crush Landing Hheily comet character",
           "playerProblem": "learn who Hheily is and how the comet fits the story"
         },
         "state": {},
         "intent": {
-          "query": "Sucker for Love Crush Landing Hheily comet",
+          "query": "Sucker for Love Crush Landing Hheily comet character",
           "playerProblem": "learn who Hheily is and how the comet fits the story",
           "primaryTask": "entity-lookup",
           "prototype": "P1",
@@ -201,35 +370,81 @@
         },
         "facts": [
           {
-            "id": "fact-hheily-comet",
+            "id": "hheily-identity",
             "label": "Hheily",
-            "value": "A sentient comet who can shapeshift into different forms, including a human-like form.",
+            "value": "Hheily is a captivating sentient comet that can shapeshift into different forms, including a human-like form.",
             "verified": true
           },
           {
-            "id": "fact-hheily-conflict",
-            "label": "Story pressure",
-            "value": "Hheily did not arrive by accident and needs energy to sustain herself.",
+            "id": "hheily-arrival",
+            "label": "Arrival",
+            "value": "The comet crashes into the player's apartment, making the apartment the central story space.",
             "verified": true
           },
           {
-            "id": "fact-hheily-tone",
-            "label": "Tone",
-            "value": "The game combines Lovecraftian horror, comedy, and romance.",
+            "id": "hheily-conflict",
+            "label": "Conflict",
+            "value": "The story frames Hheily inside an interplanetary conflict between light and dark and ties her survival to feeding her flame.",
             "verified": true
           }
         ],
         "evidence": [
           {
-            "evidenceId": "steam-store-3848900-hheily",
+            "evidenceId": "steam-hheily",
             "sourceType": "official",
             "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
-            "finding": "Steam store description, checked 2026-09-01."
+            "finding": "Official Steam description, checked 2026-09-01."
+          },
+          {
+            "evidenceId": "youtube-launch",
+            "sourceType": "youtube",
+            "sourceRef": "https://www.youtube.com/watch?v=F9OsHxwyOR0",
+            "finding": "Official trailer cross-check for Hheily and the apartment setting."
           }
         ],
         "media": [],
         "assets": [],
-        "primitiveData": [],
+        "primitiveData": [
+          {
+            "instanceId": "answer-header",
+            "primitiveId": "A01",
+            "payload": {
+              "title": "Hheily and the comet",
+              "task": "learn who Hheily is and how the comet fits the story",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-hheily",
+              "youtube-launch"
+            ],
+            "mediaRefs": []
+          },
+          {
+            "instanceId": "verified-facts",
+            "primitiveId": "E01",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Hheily",
+                  "value": "Hheily is a captivating sentient comet that can shapeshift into different forms, including a human-like form."
+                },
+                {
+                  "label": "Arrival",
+                  "value": "The comet crashes into the player's apartment, making the apartment the central story space."
+                },
+                {
+                  "label": "Conflict",
+                  "value": "The story frames Hheily inside an interplanetary conflict between light and dark and ties her survival to feeding her flame."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-hheily",
+              "youtube-launch"
+            ],
+            "mediaRefs": []
+          }
+        ],
         "primitiveRecipe": [
           {
             "primitiveId": "A01",
@@ -257,26 +472,87 @@
         "surface": "answer",
         "showHero": false,
         "hasPermanentDocsSidebar": false,
-        "primitives": []
+        "primitives": [
+          {
+            "id": "A01",
+            "label": "Answer Header",
+            "interactive": false,
+            "instanceId": "answer-header",
+            "payload": {
+              "title": "Hheily and the comet",
+              "task": "learn who Hheily is and how the comet fits the story",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-hheily",
+              "youtube-launch"
+            ],
+            "mediaRefs": [],
+            "behavior": "answer-header",
+            "data": []
+          },
+          {
+            "id": "E01",
+            "label": "Fact Card",
+            "interactive": false,
+            "instanceId": "verified-facts",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Hheily",
+                  "value": "Hheily is a captivating sentient comet that can shapeshift into different forms, including a human-like form."
+                },
+                {
+                  "label": "Arrival",
+                  "value": "The comet crashes into the player's apartment, making the apartment the central story space."
+                },
+                {
+                  "label": "Conflict",
+                  "value": "The story frames Hheily inside an interplanetary conflict between light and dark and ties her survival to feeding her flame."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-hheily",
+              "youtube-launch"
+            ],
+            "mediaRefs": [],
+            "behavior": "entity-facts",
+            "data": [
+              {
+                "label": "Hheily",
+                "value": "Hheily is a captivating sentient comet that can shapeshift into different forms, including a human-like form."
+              },
+              {
+                "label": "Arrival",
+                "value": "The comet crashes into the player's apartment, making the apartment the central story space."
+              },
+              {
+                "label": "Conflict",
+                "value": "The story frames Hheily inside an interplanetary conflict between light and dark and ties her survival to feeding her flame."
+              }
+            ]
+          }
+        ]
       }
     },
     {
       "id": "color-feeding-and-choices",
       "title": "Color feeding and choices",
-      "href": "/v4-preview/color-feeding-and-choices/",
+      "href": "/color-feeding-and-choices/",
       "pageData": {
         "pageDataVersion": "v4",
         "page": {
           "id": "color-feeding-and-choices",
           "title": "Color feeding and choices",
-          "href": "/v4-preview/color-feeding-and-choices/",
-          "query": "Sucker for Love Crush Landing colors choices multiple endings",
-          "playerProblem": "understand the confirmed puzzle and choice systems without spoilers"
+          "href": "/color-feeding-and-choices/",
+          "query": "Sucker for Love Crush Landing color feeding choices puzzles",
+          "playerProblem": "understand the confirmed color and choice loop without relying on invented solutions"
         },
         "state": {},
         "intent": {
-          "query": "Sucker for Love Crush Landing colors choices multiple endings",
-          "playerProblem": "understand the confirmed puzzle and choice systems without spoilers",
+          "query": "Sucker for Love Crush Landing color feeding choices puzzles",
+          "playerProblem": "understand the confirmed color and choice loop without relying on invented solutions",
           "primaryTask": "mechanics",
           "prototype": "P7",
           "priority": 3,
@@ -300,6 +576,11 @@
               "primitiveId": "X04",
               "status": "conditional",
               "reason": "Calculator needs meaningful variables and decision value."
+            },
+            {
+              "primitiveId": "E01",
+              "status": "include",
+              "reason": "Verified facts require a rendered fact card."
             }
           ],
           "resolution": {
@@ -309,35 +590,81 @@
         },
         "facts": [
           {
-            "id": "fact-colors",
-            "label": "Puzzle loop",
-            "value": "The store page confirms colorful puzzles involving the resources used to feed Hheily's flame.",
+            "id": "color-loop",
+            "label": "Color loop",
+            "value": "The official store page confirms that feeding Hheily's flame is central and that colorful puzzles shape play.",
             "verified": true
           },
           {
-            "id": "fact-endings",
+            "id": "choice-endings",
             "label": "Choices",
-            "value": "Actions can lead to multiple endings.",
+            "value": "The actions a player takes can lead to multiple endings.",
             "verified": true
           },
           {
-            "id": "fact-scope",
-            "label": "Guide scope",
-            "value": "This preview intentionally avoids unverified item orders, exact solutions, and ending walkthroughs.",
+            "id": "choice-scope",
+            "label": "Evidence boundary",
+            "value": "Exact item order, color recipes, and full-game branch conditions are not published in the official store description and are intentionally not invented here.",
             "verified": true
           }
         ],
         "evidence": [
           {
-            "evidenceId": "steam-store-3848900-features",
+            "evidenceId": "steam-puzzles",
             "sourceType": "official",
             "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
-            "finding": "Steam feature list confirms colorful puzzles and multiple endings based on actions, checked 2026-09-01."
+            "finding": "Steam confirms colorful puzzles and multiple endings based on actions."
+          },
+          {
+            "evidenceId": "community-color-question",
+            "sourceType": "community",
+            "sourceRef": "https://steamcommunity.com/app/3848900/discussions/",
+            "finding": "Community hub includes player discussion about color puzzles and ending outcomes; individual solutions require spoiler-controlled verification."
           }
         ],
         "media": [],
         "assets": [],
-        "primitiveData": [],
+        "primitiveData": [
+          {
+            "instanceId": "answer-header",
+            "primitiveId": "A01",
+            "payload": {
+              "title": "Color feeding and choices",
+              "task": "understand the confirmed color and choice loop without relying on invented solutions",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-puzzles",
+              "community-color-question"
+            ],
+            "mediaRefs": []
+          },
+          {
+            "instanceId": "verified-facts",
+            "primitiveId": "E01",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Color loop",
+                  "value": "The official store page confirms that feeding Hheily's flame is central and that colorful puzzles shape play."
+                },
+                {
+                  "label": "Choices",
+                  "value": "The actions a player takes can lead to multiple endings."
+                },
+                {
+                  "label": "Evidence boundary",
+                  "value": "Exact item order, color recipes, and full-game branch conditions are not published in the official store description and are intentionally not invented here."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-puzzles",
+              "community-color-question"
+            ],
+            "mediaRefs": []
+          }
+        ],
         "primitiveRecipe": [
           {
             "primitiveId": "A01",
@@ -358,6 +685,11 @@
             "primitiveId": "X04",
             "status": "omit",
             "reason": "Calculator needs meaningful variables and decision value."
+          },
+          {
+            "primitiveId": "E01",
+            "status": "include",
+            "reason": "Verified facts require a rendered fact card."
           }
         ]
       },
@@ -365,33 +697,99 @@
         "surface": "answer",
         "showHero": false,
         "hasPermanentDocsSidebar": false,
-        "primitives": []
+        "primitives": [
+          {
+            "id": "A01",
+            "label": "Answer Header",
+            "interactive": false,
+            "instanceId": "answer-header",
+            "payload": {
+              "title": "Color feeding and choices",
+              "task": "understand the confirmed color and choice loop without relying on invented solutions",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-puzzles",
+              "community-color-question"
+            ],
+            "mediaRefs": [],
+            "behavior": "answer-header",
+            "data": []
+          },
+          {
+            "id": "E01",
+            "label": "Fact Card",
+            "interactive": false,
+            "instanceId": "verified-facts",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Color loop",
+                  "value": "The official store page confirms that feeding Hheily's flame is central and that colorful puzzles shape play."
+                },
+                {
+                  "label": "Choices",
+                  "value": "The actions a player takes can lead to multiple endings."
+                },
+                {
+                  "label": "Evidence boundary",
+                  "value": "Exact item order, color recipes, and full-game branch conditions are not published in the official store description and are intentionally not invented here."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-puzzles",
+              "community-color-question"
+            ],
+            "mediaRefs": [],
+            "behavior": "entity-facts",
+            "data": [
+              {
+                "label": "Color loop",
+                "value": "The official store page confirms that feeding Hheily's flame is central and that colorful puzzles shape play."
+              },
+              {
+                "label": "Choices",
+                "value": "The actions a player takes can lead to multiple endings."
+              },
+              {
+                "label": "Evidence boundary",
+                "value": "Exact item order, color recipes, and full-game branch conditions are not published in the official store description and are intentionally not invented here."
+              }
+            ]
+          }
+        ]
       }
     },
     {
-      "id": "release-and-steam-facts",
-      "title": "Release and Steam facts",
-      "href": "/v4-preview/release-and-steam-facts/",
+      "id": "demo-walkthrough-and-first-steps",
+      "title": "Demo walkthrough and first steps",
+      "href": "/demo-walkthrough-and-first-steps/",
       "pageData": {
         "pageDataVersion": "v4",
         "page": {
-          "id": "release-and-steam-facts",
-          "title": "Release and Steam facts",
-          "href": "/v4-preview/release-and-steam-facts/",
-          "query": "Sucker for Love Crush Landing release date system requirements Steam",
-          "playerProblem": "check the current release, platform, and minimum PC requirements"
+          "id": "demo-walkthrough-and-first-steps",
+          "title": "Demo walkthrough and first steps",
+          "href": "/demo-walkthrough-and-first-steps/",
+          "query": "Sucker for Love Crush Landing demo walkthrough first steps",
+          "playerProblem": "know what the available demo opening and walkthrough coverage actually supports"
         },
         "state": {},
         "intent": {
-          "query": "Sucker for Love Crush Landing release date system requirements Steam",
-          "playerProblem": "check the current release, platform, and minimum PC requirements",
-          "primaryTask": "release-facts",
+          "query": "Sucker for Love Crush Landing demo walkthrough first steps",
+          "playerProblem": "know what the available demo opening and walkthrough coverage actually supports",
+          "primaryTask": "walkthrough",
           "priority": 4,
           "primitiveRecipe": [
             {
               "primitiveId": "A01",
               "status": "include",
               "reason": "Every answer surface identifies its task."
+            },
+            {
+              "primitiveId": "E01",
+              "status": "include",
+              "reason": "Verified facts require a rendered fact card."
             }
           ],
           "resolution": {
@@ -401,52 +799,99 @@
         },
         "facts": [
           {
-            "id": "fact-release-date",
-            "label": "Release date",
-            "value": "August 31, 2026",
+            "id": "demo-status",
+            "label": "Demo status",
+            "value": "The standalone demo has its own Steam app listing and is not the same product record as the full game.",
             "verified": true
           },
           {
-            "id": "fact-developer",
-            "label": "Developer",
-            "value": "Akabaka",
+            "id": "demo-observation",
+            "label": "Published walkthrough observation",
+            "value": "A public no-commentary demo walkthrough documents several demo endings and labels them as Neutral, True, or other demo outcomes.",
             "verified": true
           },
           {
-            "id": "fact-publisher",
-            "label": "Publisher",
-            "value": "Black Lantern Collective",
-            "verified": true
-          },
-          {
-            "id": "fact-platform",
-            "label": "Minimum OS",
-            "value": "Windows 10",
-            "verified": true
-          },
-          {
-            "id": "fact-memory",
-            "label": "Minimum memory",
-            "value": "4 GB RAM",
+            "id": "demo-boundary",
+            "label": "Walkthrough boundary",
+            "value": "Demo timing, item interactions, and ending routes are treated as demo-only observations until confirmed against the full release; this page does not claim full-game solutions.",
             "verified": true
           }
         ],
         "evidence": [
           {
-            "evidenceId": "steam-store-3848900-release",
+            "evidenceId": "steam-demo",
             "sourceType": "official",
-            "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
-            "finding": "Steam store metadata and minimum system requirements, checked 2026-09-01."
+            "sourceRef": "https://store.steampowered.com/app/4371660/Sucker_for_Love_Crush_Landing_Demo/",
+            "finding": "Official demo listing, checked 2026-09-01."
+          },
+          {
+            "evidenceId": "youtube-demo-walkthrough",
+            "sourceType": "secondary",
+            "sourceRef": "https://www.youtube.com/watch?v=Of5hgko1MXw",
+            "finding": "Public demo longplay lists Neutral End: Host, Got Off Easy, Blackout, and True Ending (Demo Ending); not official documentation."
+          },
+          {
+            "evidenceId": "pcgamer-demo",
+            "sourceType": "secondary",
+            "sourceRef": "https://www.pcgamer.com/games/sim/the-demo-of-sucker-for-love-crush-landing-is-the-gentle-reminder-i-needed-to-feel-like-a-normal-person/",
+            "finding": "Media preview discusses demo waiting, flame colors, apartment objects, and door encounters; demo-only secondary observation."
           }
         ],
         "media": [],
         "assets": [],
-        "primitiveData": [],
+        "primitiveData": [
+          {
+            "instanceId": "answer-header",
+            "primitiveId": "A01",
+            "payload": {
+              "title": "Demo walkthrough and first steps",
+              "task": "know what the available demo opening and walkthrough coverage actually supports",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-demo",
+              "youtube-demo-walkthrough",
+              "pcgamer-demo"
+            ],
+            "mediaRefs": []
+          },
+          {
+            "instanceId": "verified-facts",
+            "primitiveId": "E01",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Demo status",
+                  "value": "The standalone demo has its own Steam app listing and is not the same product record as the full game."
+                },
+                {
+                  "label": "Published walkthrough observation",
+                  "value": "A public no-commentary demo walkthrough documents several demo endings and labels them as Neutral, True, or other demo outcomes."
+                },
+                {
+                  "label": "Walkthrough boundary",
+                  "value": "Demo timing, item interactions, and ending routes are treated as demo-only observations until confirmed against the full release; this page does not claim full-game solutions."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-demo",
+              "youtube-demo-walkthrough",
+              "pcgamer-demo"
+            ],
+            "mediaRefs": []
+          }
+        ],
         "primitiveRecipe": [
           {
             "primitiveId": "A01",
             "status": "include",
             "reason": "Every answer surface identifies its task."
+          },
+          {
+            "primitiveId": "E01",
+            "status": "include",
+            "reason": "Verified facts require a rendered fact card."
           }
         ]
       },
@@ -454,7 +899,966 @@
         "surface": "answer",
         "showHero": false,
         "hasPermanentDocsSidebar": false,
-        "primitives": []
+        "primitives": [
+          {
+            "id": "A01",
+            "label": "Answer Header",
+            "interactive": false,
+            "instanceId": "answer-header",
+            "payload": {
+              "title": "Demo walkthrough and first steps",
+              "task": "know what the available demo opening and walkthrough coverage actually supports",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-demo",
+              "youtube-demo-walkthrough",
+              "pcgamer-demo"
+            ],
+            "mediaRefs": [],
+            "behavior": "answer-header",
+            "data": []
+          },
+          {
+            "id": "E01",
+            "label": "Fact Card",
+            "interactive": false,
+            "instanceId": "verified-facts",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Demo status",
+                  "value": "The standalone demo has its own Steam app listing and is not the same product record as the full game."
+                },
+                {
+                  "label": "Published walkthrough observation",
+                  "value": "A public no-commentary demo walkthrough documents several demo endings and labels them as Neutral, True, or other demo outcomes."
+                },
+                {
+                  "label": "Walkthrough boundary",
+                  "value": "Demo timing, item interactions, and ending routes are treated as demo-only observations until confirmed against the full release; this page does not claim full-game solutions."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-demo",
+              "youtube-demo-walkthrough",
+              "pcgamer-demo"
+            ],
+            "mediaRefs": [],
+            "behavior": "entity-facts",
+            "data": [
+              {
+                "label": "Demo status",
+                "value": "The standalone demo has its own Steam app listing and is not the same product record as the full game."
+              },
+              {
+                "label": "Published walkthrough observation",
+                "value": "A public no-commentary demo walkthrough documents several demo endings and labels them as Neutral, True, or other demo outcomes."
+              },
+              {
+                "label": "Walkthrough boundary",
+                "value": "Demo timing, item interactions, and ending routes are treated as demo-only observations until confirmed against the full release; this page does not claim full-game solutions."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "puzzles-and-player-questions",
+      "title": "Puzzles and player questions",
+      "href": "/puzzles-and-player-questions/",
+      "pageData": {
+        "pageDataVersion": "v4",
+        "page": {
+          "id": "puzzles-and-player-questions",
+          "title": "Puzzles and player questions",
+          "href": "/puzzles-and-player-questions/",
+          "query": "Sucker for Love Crush Landing puzzles player questions",
+          "playerProblem": "find answers to real player questions while separating confirmed facts from speculation"
+        },
+        "state": {},
+        "intent": {
+          "query": "Sucker for Love Crush Landing puzzles player questions",
+          "playerProblem": "find answers to real player questions while separating confirmed facts from speculation",
+          "primaryTask": "puzzles",
+          "priority": 5,
+          "primitiveRecipe": [
+            {
+              "primitiveId": "A01",
+              "status": "include",
+              "reason": "Every answer surface identifies its task."
+            },
+            {
+              "primitiveId": "E01",
+              "status": "include",
+              "reason": "Verified facts require a rendered fact card."
+            }
+          ],
+          "resolution": {
+            "basis": "primary-task",
+            "confidence": "high"
+          }
+        },
+        "facts": [
+          {
+            "id": "question-timer",
+            "label": "Player question",
+            "value": "Players have asked whether the opening wait for researchers can be shortened; the Steam discussion records the question, but this research does not assert an unverified fix.",
+            "verified": true
+          },
+          {
+            "id": "question-ending-count",
+            "label": "Player question",
+            "value": "Players have compared the number and types of demo endings; community reports vary, so demo reports are not promoted to a definitive full-game ending list.",
+            "verified": true
+          },
+          {
+            "id": "question-protagonist",
+            "label": "Player question",
+            "value": "Players have asked who the protagonist is and about romance representation; the official store listing does not provide enough detail to answer beyond the published premise.",
+            "verified": true
+          },
+          {
+            "id": "question-language",
+            "label": "Player question",
+            "value": "Players have asked about localization; the current Steam listing is the authority for supported full-game languages and may change over time.",
+            "verified": true
+          }
+        ],
+        "evidence": [
+          {
+            "evidenceId": "steam-community-questions",
+            "sourceType": "community",
+            "sourceRef": "https://steamcommunity.com/app/3848900",
+            "finding": "Community hub surfaces questions about the opening wait, ending count, protagonist, and language."
+          },
+          {
+            "evidenceId": "reddit-community",
+            "sourceType": "reddit",
+            "sourceRef": "https://www.reddit.com/r/suckerforlove/comments/1vp7ryx/game_order/",
+            "finding": "Reddit search coverage confirms active player discussion around Sucker for Love ordering and play context; not a primary source for Crush Landing facts."
+          },
+          {
+            "evidenceId": "steam-community-list",
+            "sourceType": "community",
+            "sourceRef": "https://steamcommunity.com/app/3848900/discussions/?l=latam",
+            "finding": "Discussion index includes threads titled Who is the main character?, Language changes to French, and other player questions."
+          }
+        ],
+        "media": [],
+        "assets": [],
+        "primitiveData": [
+          {
+            "instanceId": "answer-header",
+            "primitiveId": "A01",
+            "payload": {
+              "title": "Puzzles and player questions",
+              "task": "find answers to real player questions while separating confirmed facts from speculation",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-community-questions",
+              "reddit-community",
+              "steam-community-list"
+            ],
+            "mediaRefs": []
+          },
+          {
+            "instanceId": "verified-facts",
+            "primitiveId": "E01",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Player question",
+                  "value": "Players have asked whether the opening wait for researchers can be shortened; the Steam discussion records the question, but this research does not assert an unverified fix."
+                },
+                {
+                  "label": "Player question",
+                  "value": "Players have compared the number and types of demo endings; community reports vary, so demo reports are not promoted to a definitive full-game ending list."
+                },
+                {
+                  "label": "Player question",
+                  "value": "Players have asked who the protagonist is and about romance representation; the official store listing does not provide enough detail to answer beyond the published premise."
+                },
+                {
+                  "label": "Player question",
+                  "value": "Players have asked about localization; the current Steam listing is the authority for supported full-game languages and may change over time."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-community-questions",
+              "reddit-community",
+              "steam-community-list"
+            ],
+            "mediaRefs": []
+          }
+        ],
+        "primitiveRecipe": [
+          {
+            "primitiveId": "A01",
+            "status": "include",
+            "reason": "Every answer surface identifies its task."
+          },
+          {
+            "primitiveId": "E01",
+            "status": "include",
+            "reason": "Verified facts require a rendered fact card."
+          }
+        ]
+      },
+      "composition": {
+        "surface": "answer",
+        "showHero": false,
+        "hasPermanentDocsSidebar": false,
+        "primitives": [
+          {
+            "id": "A01",
+            "label": "Answer Header",
+            "interactive": false,
+            "instanceId": "answer-header",
+            "payload": {
+              "title": "Puzzles and player questions",
+              "task": "find answers to real player questions while separating confirmed facts from speculation",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-community-questions",
+              "reddit-community",
+              "steam-community-list"
+            ],
+            "mediaRefs": [],
+            "behavior": "answer-header",
+            "data": []
+          },
+          {
+            "id": "E01",
+            "label": "Fact Card",
+            "interactive": false,
+            "instanceId": "verified-facts",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Player question",
+                  "value": "Players have asked whether the opening wait for researchers can be shortened; the Steam discussion records the question, but this research does not assert an unverified fix."
+                },
+                {
+                  "label": "Player question",
+                  "value": "Players have compared the number and types of demo endings; community reports vary, so demo reports are not promoted to a definitive full-game ending list."
+                },
+                {
+                  "label": "Player question",
+                  "value": "Players have asked who the protagonist is and about romance representation; the official store listing does not provide enough detail to answer beyond the published premise."
+                },
+                {
+                  "label": "Player question",
+                  "value": "Players have asked about localization; the current Steam listing is the authority for supported full-game languages and may change over time."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-community-questions",
+              "reddit-community",
+              "steam-community-list"
+            ],
+            "mediaRefs": [],
+            "behavior": "entity-facts",
+            "data": [
+              {
+                "label": "Player question",
+                "value": "Players have asked whether the opening wait for researchers can be shortened; the Steam discussion records the question, but this research does not assert an unverified fix."
+              },
+              {
+                "label": "Player question",
+                "value": "Players have compared the number and types of demo endings; community reports vary, so demo reports are not promoted to a definitive full-game ending list."
+              },
+              {
+                "label": "Player question",
+                "value": "Players have asked who the protagonist is and about romance representation; the official store listing does not provide enough detail to answer beyond the published premise."
+              },
+              {
+                "label": "Player question",
+                "value": "Players have asked about localization; the current Steam listing is the authority for supported full-game languages and may change over time."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "endings-and-achievements",
+      "title": "Endings and achievements",
+      "href": "/endings-and-achievements/",
+      "pageData": {
+        "pageDataVersion": "v4",
+        "page": {
+          "id": "endings-and-achievements",
+          "title": "Endings and achievements",
+          "href": "/endings-and-achievements/",
+          "query": "Sucker for Love Crush Landing endings achievements",
+          "playerProblem": "understand what is confirmed about endings and achievement hunting without fabricated unlock steps"
+        },
+        "state": {},
+        "intent": {
+          "query": "Sucker for Love Crush Landing endings achievements",
+          "playerProblem": "understand what is confirmed about endings and achievement hunting without fabricated unlock steps",
+          "primaryTask": "achievements",
+          "priority": 6,
+          "primitiveRecipe": [
+            {
+              "primitiveId": "A01",
+              "status": "include",
+              "reason": "Every answer surface identifies its task."
+            },
+            {
+              "primitiveId": "E01",
+              "status": "include",
+              "reason": "Verified facts require a rendered fact card."
+            }
+          ],
+          "resolution": {
+            "basis": "primary-task",
+            "confidence": "high"
+          }
+        },
+        "facts": [
+          {
+            "id": "ending-count",
+            "label": "Endings",
+            "value": "The official store listing confirms multiple endings based on player actions, but does not publish a complete route list.",
+            "verified": true
+          },
+          {
+            "id": "achievement-count",
+            "label": "Achievements",
+            "value": "The Steam achievement record currently lists 19 achievements.",
+            "verified": true
+          },
+          {
+            "id": "achievement-themes",
+            "label": "Achievement themes",
+            "value": "The public achievement list includes neutral-or-better endings, visitors, Hheily interactions, romance outcomes, and the Sentient Darkness.",
+            "verified": true
+          },
+          {
+            "id": "achievement-scope",
+            "label": "Guide boundary",
+            "value": "Exact unlock routes and spoiler-heavy conditions are not asserted unless directly verified in the full game.",
+            "verified": true
+          }
+        ],
+        "evidence": [
+          {
+            "evidenceId": "steam-achievements",
+            "sourceType": "official",
+            "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
+            "finding": "Steam store page lists Steam Achievements and multiple endings."
+          },
+          {
+            "evidenceId": "achievement-index",
+            "sourceType": "secondary",
+            "sourceRef": "https://www.exophase.com/game/sucker-for-love-crush-landing-steam/achievements/",
+            "finding": "Achievement index lists 19 total achievements and public names/descriptions, checked 2026-09-01."
+          },
+          {
+            "evidenceId": "demo-ending-walkthrough",
+            "sourceType": "secondary",
+            "sourceRef": "https://www.youtube.com/watch?v=Of5hgko1MXw",
+            "finding": "Demo walkthrough provides demo ending labels only, not a full-release achievement guide."
+          }
+        ],
+        "media": [],
+        "assets": [],
+        "primitiveData": [
+          {
+            "instanceId": "answer-header",
+            "primitiveId": "A01",
+            "payload": {
+              "title": "Endings and achievements",
+              "task": "understand what is confirmed about endings and achievement hunting without fabricated unlock steps",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-achievements",
+              "achievement-index",
+              "demo-ending-walkthrough"
+            ],
+            "mediaRefs": []
+          },
+          {
+            "instanceId": "verified-facts",
+            "primitiveId": "E01",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Endings",
+                  "value": "The official store listing confirms multiple endings based on player actions, but does not publish a complete route list."
+                },
+                {
+                  "label": "Achievements",
+                  "value": "The Steam achievement record currently lists 19 achievements."
+                },
+                {
+                  "label": "Achievement themes",
+                  "value": "The public achievement list includes neutral-or-better endings, visitors, Hheily interactions, romance outcomes, and the Sentient Darkness."
+                },
+                {
+                  "label": "Guide boundary",
+                  "value": "Exact unlock routes and spoiler-heavy conditions are not asserted unless directly verified in the full game."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-achievements",
+              "achievement-index",
+              "demo-ending-walkthrough"
+            ],
+            "mediaRefs": []
+          }
+        ],
+        "primitiveRecipe": [
+          {
+            "primitiveId": "A01",
+            "status": "include",
+            "reason": "Every answer surface identifies its task."
+          },
+          {
+            "primitiveId": "E01",
+            "status": "include",
+            "reason": "Verified facts require a rendered fact card."
+          }
+        ]
+      },
+      "composition": {
+        "surface": "answer",
+        "showHero": false,
+        "hasPermanentDocsSidebar": false,
+        "primitives": [
+          {
+            "id": "A01",
+            "label": "Answer Header",
+            "interactive": false,
+            "instanceId": "answer-header",
+            "payload": {
+              "title": "Endings and achievements",
+              "task": "understand what is confirmed about endings and achievement hunting without fabricated unlock steps",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-achievements",
+              "achievement-index",
+              "demo-ending-walkthrough"
+            ],
+            "mediaRefs": [],
+            "behavior": "answer-header",
+            "data": []
+          },
+          {
+            "id": "E01",
+            "label": "Fact Card",
+            "interactive": false,
+            "instanceId": "verified-facts",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Endings",
+                  "value": "The official store listing confirms multiple endings based on player actions, but does not publish a complete route list."
+                },
+                {
+                  "label": "Achievements",
+                  "value": "The Steam achievement record currently lists 19 achievements."
+                },
+                {
+                  "label": "Achievement themes",
+                  "value": "The public achievement list includes neutral-or-better endings, visitors, Hheily interactions, romance outcomes, and the Sentient Darkness."
+                },
+                {
+                  "label": "Guide boundary",
+                  "value": "Exact unlock routes and spoiler-heavy conditions are not asserted unless directly verified in the full game."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-achievements",
+              "achievement-index",
+              "demo-ending-walkthrough"
+            ],
+            "mediaRefs": [],
+            "behavior": "entity-facts",
+            "data": [
+              {
+                "label": "Endings",
+                "value": "The official store listing confirms multiple endings based on player actions, but does not publish a complete route list."
+              },
+              {
+                "label": "Achievements",
+                "value": "The Steam achievement record currently lists 19 achievements."
+              },
+              {
+                "label": "Achievement themes",
+                "value": "The public achievement list includes neutral-or-better endings, visitors, Hheily interactions, romance outcomes, and the Sentient Darkness."
+              },
+              {
+                "label": "Guide boundary",
+                "value": "Exact unlock routes and spoiler-heavy conditions are not asserted unless directly verified in the full game."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "characters-and-visitors",
+      "title": "Characters and visitors",
+      "href": "/characters-and-visitors/",
+      "pageData": {
+        "pageDataVersion": "v4",
+        "page": {
+          "id": "characters-and-visitors",
+          "title": "Characters and visitors",
+          "href": "/characters-and-visitors/",
+          "query": "Sucker for Love Crush Landing characters visitors",
+          "playerProblem": "see which characters are actually confirmed and which visitor names come only from achievement or demo evidence"
+        },
+        "state": {},
+        "intent": {
+          "query": "Sucker for Love Crush Landing characters visitors",
+          "playerProblem": "see which characters are actually confirmed and which visitor names come only from achievement or demo evidence",
+          "primaryTask": "characters",
+          "priority": 7,
+          "primitiveRecipe": [
+            {
+              "primitiveId": "A01",
+              "status": "include",
+              "reason": "Every answer surface identifies its task."
+            },
+            {
+              "primitiveId": "E01",
+              "status": "include",
+              "reason": "Verified facts require a rendered fact card."
+            }
+          ],
+          "resolution": {
+            "basis": "primary-task",
+            "confidence": "high"
+          }
+        },
+        "facts": [
+          {
+            "id": "character-hheily",
+            "label": "Confirmed central character",
+            "value": "Hheily is the sentient shapeshifting comet and the central character named in the official premise.",
+            "verified": true
+          },
+          {
+            "id": "character-roster-boundary",
+            "label": "Roster boundary",
+            "value": "The official store page does not publish a complete character roster; this page does not invent one from genre expectations or prior series entries.",
+            "verified": true
+          },
+          {
+            "id": "visitor-evidence",
+            "label": "Public achievement evidence",
+            "value": "The public achievement record names Flora, Mina, the divorced couple, Scam Likely, Midori, Maria, Monami, and the Sentient Darkness in achievement text; these names are evidence of referenced interactions, not a complete narrative roster or route guide.",
+            "verified": true
+          }
+        ],
+        "evidence": [
+          {
+            "evidenceId": "steam-character-premise",
+            "sourceType": "official",
+            "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
+            "finding": "Official Steam premise names Hheily."
+          },
+          {
+            "evidenceId": "achievement-character-names",
+            "sourceType": "secondary",
+            "sourceRef": "https://www.exophase.com/game/sucker-for-love-crush-landing-steam/achievements/",
+            "finding": "Public achievement descriptions contain the listed interaction names; checked 2026-09-01."
+          },
+          {
+            "evidenceId": "steam-character-question",
+            "sourceType": "community",
+            "sourceRef": "https://steamcommunity.com/app/3848900/discussions/",
+            "finding": "Community hub contains a current Who is the main character? thread, showing the roster/protagonist question is real and unresolved by the store description."
+          }
+        ],
+        "media": [],
+        "assets": [],
+        "primitiveData": [
+          {
+            "instanceId": "answer-header",
+            "primitiveId": "A01",
+            "payload": {
+              "title": "Characters and visitors",
+              "task": "see which characters are actually confirmed and which visitor names come only from achievement or demo evidence",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-character-premise",
+              "achievement-character-names",
+              "steam-character-question"
+            ],
+            "mediaRefs": []
+          },
+          {
+            "instanceId": "verified-facts",
+            "primitiveId": "E01",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Confirmed central character",
+                  "value": "Hheily is the sentient shapeshifting comet and the central character named in the official premise."
+                },
+                {
+                  "label": "Roster boundary",
+                  "value": "The official store page does not publish a complete character roster; this page does not invent one from genre expectations or prior series entries."
+                },
+                {
+                  "label": "Public achievement evidence",
+                  "value": "The public achievement record names Flora, Mina, the divorced couple, Scam Likely, Midori, Maria, Monami, and the Sentient Darkness in achievement text; these names are evidence of referenced interactions, not a complete narrative roster or route guide."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-character-premise",
+              "achievement-character-names",
+              "steam-character-question"
+            ],
+            "mediaRefs": []
+          }
+        ],
+        "primitiveRecipe": [
+          {
+            "primitiveId": "A01",
+            "status": "include",
+            "reason": "Every answer surface identifies its task."
+          },
+          {
+            "primitiveId": "E01",
+            "status": "include",
+            "reason": "Verified facts require a rendered fact card."
+          }
+        ]
+      },
+      "composition": {
+        "surface": "answer",
+        "showHero": false,
+        "hasPermanentDocsSidebar": false,
+        "primitives": [
+          {
+            "id": "A01",
+            "label": "Answer Header",
+            "interactive": false,
+            "instanceId": "answer-header",
+            "payload": {
+              "title": "Characters and visitors",
+              "task": "see which characters are actually confirmed and which visitor names come only from achievement or demo evidence",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-character-premise",
+              "achievement-character-names",
+              "steam-character-question"
+            ],
+            "mediaRefs": [],
+            "behavior": "answer-header",
+            "data": []
+          },
+          {
+            "id": "E01",
+            "label": "Fact Card",
+            "interactive": false,
+            "instanceId": "verified-facts",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Confirmed central character",
+                  "value": "Hheily is the sentient shapeshifting comet and the central character named in the official premise."
+                },
+                {
+                  "label": "Roster boundary",
+                  "value": "The official store page does not publish a complete character roster; this page does not invent one from genre expectations or prior series entries."
+                },
+                {
+                  "label": "Public achievement evidence",
+                  "value": "The public achievement record names Flora, Mina, the divorced couple, Scam Likely, Midori, Maria, Monami, and the Sentient Darkness in achievement text; these names are evidence of referenced interactions, not a complete narrative roster or route guide."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-character-premise",
+              "achievement-character-names",
+              "steam-character-question"
+            ],
+            "mediaRefs": [],
+            "behavior": "entity-facts",
+            "data": [
+              {
+                "label": "Confirmed central character",
+                "value": "Hheily is the sentient shapeshifting comet and the central character named in the official premise."
+              },
+              {
+                "label": "Roster boundary",
+                "value": "The official store page does not publish a complete character roster; this page does not invent one from genre expectations or prior series entries."
+              },
+              {
+                "label": "Public achievement evidence",
+                "value": "The public achievement record names Flora, Mina, the divorced couple, Scam Likely, Midori, Maria, Monami, and the Sentient Darkness in achievement text; these names are evidence of referenced interactions, not a complete narrative roster or route guide."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "release-and-steam-facts",
+      "title": "Release and Steam facts",
+      "href": "/release-and-steam-facts/",
+      "pageData": {
+        "pageDataVersion": "v4",
+        "page": {
+          "id": "release-and-steam-facts",
+          "title": "Release and Steam facts",
+          "href": "/release-and-steam-facts/",
+          "query": "Sucker for Love Crush Landing release Steam requirements",
+          "playerProblem": "check the current release, platform, features, language, and minimum PC requirements"
+        },
+        "state": {},
+        "intent": {
+          "query": "Sucker for Love Crush Landing release Steam requirements",
+          "playerProblem": "check the current release, platform, features, language, and minimum PC requirements",
+          "primaryTask": "release-facts",
+          "priority": 8,
+          "primitiveRecipe": [
+            {
+              "primitiveId": "A01",
+              "status": "include",
+              "reason": "Every answer surface identifies its task."
+            },
+            {
+              "primitiveId": "E01",
+              "status": "include",
+              "reason": "Verified facts require a rendered fact card."
+            }
+          ],
+          "resolution": {
+            "basis": "primary-task",
+            "confidence": "high"
+          }
+        },
+        "facts": [
+          {
+            "id": "release-date",
+            "label": "Release date",
+            "value": "August 31, 2026, according to the current Steam store listing.",
+            "verified": true
+          },
+          {
+            "id": "developer-publisher",
+            "label": "Credits",
+            "value": "Developer: Akabaka. Publisher: Black Lantern Collective.",
+            "verified": true
+          },
+          {
+            "id": "steam-features",
+            "label": "Features",
+            "value": "Single-player, Steam Achievements, Steam Cloud, and Family Sharing are listed on Steam.",
+            "verified": true
+          },
+          {
+            "id": "language",
+            "label": "Language",
+            "value": "The current full-game Steam listing marks English interface, full audio, and subtitles; check Steam for changes.",
+            "verified": true
+          },
+          {
+            "id": "requirements",
+            "label": "Minimum PC",
+            "value": "The current minimum requirements list Windows 10 and 4 GB RAM.",
+            "verified": true
+          },
+          {
+            "id": "content-note",
+            "label": "Content note",
+            "value": "Steam describes adult themes and comically disturbing body horror without explicit content.",
+            "verified": true
+          }
+        ],
+        "evidence": [
+          {
+            "evidenceId": "steam-release",
+            "sourceType": "official",
+            "sourceRef": "https://store.steampowered.com/app/3848900/Sucker_for_Love_Crush_Landing/",
+            "finding": "Official Steam metadata, features, language, content note, and minimum requirements, checked 2026-09-01."
+          },
+          {
+            "evidenceId": "steam-community-language",
+            "sourceType": "community",
+            "sourceRef": "https://steamcommunity.com/app/3848900/discussions/?l=latam",
+            "finding": "Community index contains a language-change question; the store listing remains the authoritative current source."
+          }
+        ],
+        "media": [],
+        "assets": [],
+        "primitiveData": [
+          {
+            "instanceId": "answer-header",
+            "primitiveId": "A01",
+            "payload": {
+              "title": "Release and Steam facts",
+              "task": "check the current release, platform, features, language, and minimum PC requirements",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-release",
+              "steam-community-language"
+            ],
+            "mediaRefs": []
+          },
+          {
+            "instanceId": "verified-facts",
+            "primitiveId": "E01",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Release date",
+                  "value": "August 31, 2026, according to the current Steam store listing."
+                },
+                {
+                  "label": "Credits",
+                  "value": "Developer: Akabaka. Publisher: Black Lantern Collective."
+                },
+                {
+                  "label": "Features",
+                  "value": "Single-player, Steam Achievements, Steam Cloud, and Family Sharing are listed on Steam."
+                },
+                {
+                  "label": "Language",
+                  "value": "The current full-game Steam listing marks English interface, full audio, and subtitles; check Steam for changes."
+                },
+                {
+                  "label": "Minimum PC",
+                  "value": "The current minimum requirements list Windows 10 and 4 GB RAM."
+                },
+                {
+                  "label": "Content note",
+                  "value": "Steam describes adult themes and comically disturbing body horror without explicit content."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-release",
+              "steam-community-language"
+            ],
+            "mediaRefs": []
+          }
+        ],
+        "primitiveRecipe": [
+          {
+            "primitiveId": "A01",
+            "status": "include",
+            "reason": "Every answer surface identifies its task."
+          },
+          {
+            "primitiveId": "E01",
+            "status": "include",
+            "reason": "Verified facts require a rendered fact card."
+          }
+        ]
+      },
+      "composition": {
+        "surface": "answer",
+        "showHero": false,
+        "hasPermanentDocsSidebar": false,
+        "primitives": [
+          {
+            "id": "A01",
+            "label": "Answer Header",
+            "interactive": false,
+            "instanceId": "answer-header",
+            "payload": {
+              "title": "Release and Steam facts",
+              "task": "check the current release, platform, features, language, and minimum PC requirements",
+              "subject": "Sucker for Love: Crush Landing"
+            },
+            "evidenceRefs": [
+              "steam-release",
+              "steam-community-language"
+            ],
+            "mediaRefs": [],
+            "behavior": "answer-header",
+            "data": []
+          },
+          {
+            "id": "E01",
+            "label": "Fact Card",
+            "interactive": false,
+            "instanceId": "verified-facts",
+            "payload": {
+              "facts": [
+                {
+                  "label": "Release date",
+                  "value": "August 31, 2026, according to the current Steam store listing."
+                },
+                {
+                  "label": "Credits",
+                  "value": "Developer: Akabaka. Publisher: Black Lantern Collective."
+                },
+                {
+                  "label": "Features",
+                  "value": "Single-player, Steam Achievements, Steam Cloud, and Family Sharing are listed on Steam."
+                },
+                {
+                  "label": "Language",
+                  "value": "The current full-game Steam listing marks English interface, full audio, and subtitles; check Steam for changes."
+                },
+                {
+                  "label": "Minimum PC",
+                  "value": "The current minimum requirements list Windows 10 and 4 GB RAM."
+                },
+                {
+                  "label": "Content note",
+                  "value": "Steam describes adult themes and comically disturbing body horror without explicit content."
+                }
+              ]
+            },
+            "evidenceRefs": [
+              "steam-release",
+              "steam-community-language"
+            ],
+            "mediaRefs": [],
+            "behavior": "entity-facts",
+            "data": [
+              {
+                "label": "Release date",
+                "value": "August 31, 2026, according to the current Steam store listing."
+              },
+              {
+                "label": "Credits",
+                "value": "Developer: Akabaka. Publisher: Black Lantern Collective."
+              },
+              {
+                "label": "Features",
+                "value": "Single-player, Steam Achievements, Steam Cloud, and Family Sharing are listed on Steam."
+              },
+              {
+                "label": "Language",
+                "value": "The current full-game Steam listing marks English interface, full audio, and subtitles; check Steam for changes."
+              },
+              {
+                "label": "Minimum PC",
+                "value": "The current minimum requirements list Windows 10 and 4 GB RAM."
+              },
+              {
+                "label": "Content note",
+                "value": "Steam describes adult themes and comically disturbing body horror without explicit content."
+              }
+            ]
+          }
+        ]
       }
     }
   ]

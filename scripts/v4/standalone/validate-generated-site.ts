@@ -37,8 +37,9 @@ for (const entry of forbidden) {
 }
 
 const generated = JSON.parse(readFileSync(generatedPath, 'utf8')) as {
-  game?: { name?: string };
-  pages?: Array<{ id?: string; href?: string }>;
+  game?: { name?: string; slug?: string };
+  navigation?: { primary?: Array<{ href?: string; groups?: Array<{ items?: Array<{ href?: string }> }> }>; utilities?: Array<{ href?: string }> };
+  pages?: Array<{ id?: string; href?: string; pageData?: { facts?: unknown[]; evidence?: unknown[]; primitiveData?: unknown[] }; composition?: { primitives?: unknown[] } }>;
 };
 if (!generated.game?.name?.trim() || !generated.pages?.length) {
   throw new Error('V4 standalone validation failed: generated site has no game identity or pages.');
@@ -48,5 +49,24 @@ for (const page of generated.pages) {
   if (!page.id || !page.href?.startsWith('/')) throw new Error('V4 standalone validation failed: invalid generated page.');
   if (ids.has(page.id)) throw new Error(`V4 standalone validation failed: duplicate page id ${page.id}.`);
   ids.add(page.id);
+  const facts = page.pageData?.facts?.length ?? 0;
+  const evidence = page.pageData?.evidence?.length ?? 0;
+  const primitiveData = page.pageData?.primitiveData?.length ?? 0;
+  const composed = page.composition?.primitives?.length ?? 0;
+  if ((facts || evidence) && (!primitiveData || !composed)) throw new Error(`V4 standalone validation failed: page ${page.id} has facts/evidence but empty primitiveData or composition.primitives.`);
+  if (!composed) throw new Error(`V4 standalone validation failed: page ${page.id} has empty composition.primitives.`);
 }
+const hrefs = [
+  ...(generated.navigation?.primary ?? []).flatMap((item) => [item.href, ...(item.groups ?? []).flatMap((group) => (group.items ?? []).map((child) => child.href))]),
+  ...(generated.navigation?.utilities ?? []).map((item) => item.href),
+  ...generated.pages.map((page) => page.href),
+].filter((href): href is string => Boolean(href));
+const routes = new Set(['/','/category/','/search/', ...generated.pages.map((page) => page.href)].map((href) => href.replace(/^\/v4-preview(?=\/|$)/, '') || '/'));
+for (const href of hrefs) {
+  const route = href.replace(/^\/v4-preview(?=\/|$)/, '') || '/';
+  if (!routes.has(route)) throw new Error(`V4 standalone validation failed: canonical navigation route is not generated: ${href}`);
+}
+const serialized = readFileSync(generatedPath, 'utf8');
+const artificialFixture = generated.game?.slug === 'artificial-emberfall-p2-fixture';
+if (/Example Game|example\.invalid|placeholder|Unknown metadata/i.test(serialized) || (!artificialFixture && /Artificial Emberfall/i.test(serialized))) throw new Error('V4 standalone validation failed: starter placeholder or fixture residue remains in generated output.');
 console.log(`validate:generated V4 standalone PASS (${generated.pages.length} pages)`);

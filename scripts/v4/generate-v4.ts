@@ -80,13 +80,29 @@ function toCanonicalSite(site: V4GeneratedSite): V4GeneratedSite {
 export function generateV4(input: V4SiteInput): V4GeneratedSite {
 	const homepageAssets: PageAssetCandidate[] = [];
 	const pages = input.pages.map((page) => {
-		const intent = resolveIntent({
+		const resolvedIntent = resolveIntent({
 			query: page.query,
 			playerProblem: page.playerProblem,
 			primaryTask: page.primaryTask,
 			evidence: page.resolverEvidence,
 			priority: page.priority,
 		});
+		const sourceFacts = page.facts?.length
+			? page.facts
+			: (page.evidence ?? []).map((item, index) => ({
+				id: item.evidenceId ?? `evidence-fact-${index + 1}`,
+				label: item.label ?? item.sourceType ?? 'Evidence',
+				value: item.finding ?? item.quote ?? item.sourceRef ?? item.url ?? 'Verified source evidence',
+				verified: true,
+			}));
+		const intent = sourceFacts.length && !resolvedIntent.primitiveRecipe.some((item) => item.primitiveId === 'E01')
+			? { ...resolvedIntent, primitiveRecipe: [...resolvedIntent.primitiveRecipe, { primitiveId: 'E01', status: 'include' as const, reason: 'Verified facts require a rendered fact card.' }] }
+			: resolvedIntent;
+		const evidenceRefs = (page.evidence ?? []).map((item, index) => item.evidenceId ?? `evidence-${index + 1}`);
+		const fallbackPrimitiveData: PrimitiveInstance[] = [
+			{ instanceId: 'answer-header', primitiveId: 'A01', payload: { title: page.title, task: page.playerProblem, subject: input.game.name }, evidenceRefs, mediaRefs: [] },
+			...(sourceFacts.length ? [{ instanceId: 'verified-facts', primitiveId: 'E01' as const, payload: { facts: sourceFacts.map((fact) => ({ label: fact.label, value: fact.value })) }, evidenceRefs, mediaRefs: [] }] : []),
+		];
 		const pageAssets = (page.assets ?? []).filter((asset) => {
 			// Hero media is homepage media by default. A content page may retain
 			// it only when its input explicitly references media from its own
@@ -105,7 +121,7 @@ export function generateV4(input: V4SiteInput): V4GeneratedSite {
 			evidence: page.evidence,
 			freshness: page.freshness,
 			assets: media.assets,
-			primitiveData: page.primitiveData,
+			primitiveData: page.primitiveData?.length ? page.primitiveData : fallbackPrimitiveData,
 				primitiveSupport: { ...media.primitiveSupport, ...page.primitiveSupport },
 		};
 		const pageData = createPageData(pageDataInput);
@@ -122,7 +138,7 @@ export function generateV4(input: V4SiteInput): V4GeneratedSite {
 
 export function generateV4File(inputPath: string, outputPath: string): V4GeneratedSite {
 	const input = JSON.parse(readFileSync(inputPath, 'utf8')) as V4SiteInput;
-	const output = generateV4(input);
+	const output = toCanonicalSite(generateV4(input));
 	mkdirSync(path.dirname(outputPath), { recursive: true });
 	writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
 	return output;
