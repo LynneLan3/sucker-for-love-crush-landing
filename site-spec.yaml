@@ -63,3 +63,7 @@ homepage:
   primaryCta:
     label: Getting Started
     pageId: getting-started
+
+analytics:
+  ga4MeasurementId: G-ER9YWC3GPJ
+
